@@ -7,14 +7,17 @@ export default class VideoPlayer extends Component {
 
     render() {
 
+        var myVid = this.props.bunnyVid;
+        var videoSetup = `{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": ${myVid}}], "youtube": { "ytControls": 1 } }`;
+
         return(
 
-            <Video
-              className="video-js vjs-default-skin vjs-container"
-              controls
-              data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=mOSQwJ0T4_s"}], "youtube": { "ytControls": 1 } }'
-              onPlay={this.handlePlay}
-              />
+          <Video
+            className="video-js vjs-default-skin vjs-container"
+            controls
+            data-setup={videoSetup}
+            onPlay={this.handlePlay}
+            />
 
         )
     }
